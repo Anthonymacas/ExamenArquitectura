@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>Proyectos</mat-card-title>
+  <button mat-raised-button color="primary" (click)="abrirDialogoProyecto()">
+    Proyectos
+  </button>
+  <mat-table [dataSource]="proyectos" class="mat-elevation-z8">
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let proyecto"> {{ proyecto.nombre }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="descripcion">
+      <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+      <mat-cell *matCellDef="let proyecto">
+        {{ proyecto.descripcion }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+      <mat-cell *matCellDef="let proyecto">
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="borrarProyectos(proyecto.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="abrirDialogoProyecto(proyecto)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</mat-card>

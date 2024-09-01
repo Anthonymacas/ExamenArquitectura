@@ -1,0 +1,15 @@
+<ng-container *transloco="let t">
+    <div class="sumelab-landing-background exception-body notfound">
+        <div class="exception-panel">
+            <h1>{{ t("no-encontrado.cod") }}</h1>
+            <h3>{{ t("no-encontrado.noEncontrado") }}</h3>
+            <p>{{ t("no-encontrado.tipo") }}</p>
+            <button
+                type="button"
+                pButton
+                label="Regresar a inicio"
+                (click)="redirigir()"
+            ></button>
+        </div>
+    </div>
+</ng-container>

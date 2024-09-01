@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>
+  {{ data.id === 0 ? "Nuevo Empleado" : "Editar Empleado" }}
+</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre Empleado</mat-label>
+    <input
+      matInput
+      [(ngModel)]="data.nombre"
+      placeholder="Nombre Empleado"
+      name="nombre"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Apellido</mat-label>
+    <input
+      matInput
+      [(ngModel)]="data.apellido"
+      placeholder="Apellido"
+      name="apellido"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      [(ngModel)]="data.email"
+      placeholder="Email"
+      name="email"
+      required
+      type="email"
+    />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="guardarCambios()">Guardar</button>
+</mat-dialog-actions>

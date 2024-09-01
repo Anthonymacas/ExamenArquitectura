@@ -1,0 +1,27 @@
+<mat-card class="login-container">
+  <mat-card-title>Login</mat-card-title>
+  <form (ngSubmit)="login()">
+    <mat-form-field appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <input
+        matInput
+        id="usuario"
+        [(ngModel)]="usuario"
+        name="usuario"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Clave</mat-label>
+      <input
+        matInput
+        id="clave"
+        [(ngModel)]="clave"
+        name="clave"
+        type="password"
+        required
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Login</button>
+  </form>
+</mat-card>

@@ -1,0 +1,22 @@
+mat-dialog-container {
+  max-width: 100vw;
+  max-height: 90vh;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  mat-dialog-container {
+    width: 95vw;
+    height: auto;
+    padding: 10px;
+  }
+
+  mat-dialog-title {
+    font-size: 1.2rem;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+}

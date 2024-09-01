@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-card-title>Empleados</mat-card-title>
+  <button mat-raised-button color="primary" (click)="abrirDialogoEmpleado()">
+    Empleados
+  </button>
+  <mat-table [dataSource]="empleados" class="mat-elevation-z8">
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let empleado"> {{ empleado.nombre }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+      <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+      <mat-cell *matCellDef="let empleado"> {{ empleado.apellido }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let empleado"> {{ empleado.email }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+      <mat-cell *matCellDef="let empleado">
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="borrarEmpleado(empleado.id)"
+        >
+          Delete
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="abrirDialogoEmpleado(empleado)"
+        >
+          Edit
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row
+      *matHeaderRowDef="['nombre', 'apellido', 'email', 'acciones']"
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: ['nombre', 'apellido', 'email', 'acciones']"
+    ></mat-row>
+  </mat-table>
+</mat-card>

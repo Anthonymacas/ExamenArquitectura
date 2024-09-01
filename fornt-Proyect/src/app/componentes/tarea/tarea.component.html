@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-title>Tareas</mat-card-title>
+  <button mat-raised-button color="primary" (click)="abrirDialogoTarea()">
+    Tareas
+  </button>
+  <mat-table [dataSource]="tareas" class="mat-elevation-z8">
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+      <mat-cell *matCellDef="let tarea"> {{ tarea.nombre }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="descripcion">
+      <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+      <mat-cell *matCellDef="let tarea"> {{ tarea.descripcion }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+      <mat-cell *matCellDef="let tarea">
+        <button mat-icon-button color="warn" (click)="borrarTarea(tarea.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="abrirDialogoTarea(tarea)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</mat-card>

@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>
+  {{ isEditMode ? "Editar Proyecto" : "Nuevo Proyecto" }}
+</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre Proyecto</mat-label>
+    <input
+      matInput
+      [(ngModel)]="data.nombre"
+      placeholder="Nombre Proyecto"
+      name="nombre"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción</mat-label>
+    <textarea
+      matInput
+      [(ngModel)]="data.descripcion"
+      placeholder="Descripción"
+      name="descripcion"
+      required
+    ></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="guardarCambios()">Guardar</button>
+</mat-dialog-actions>

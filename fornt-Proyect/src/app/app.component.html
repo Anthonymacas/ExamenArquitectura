@@ -1,0 +1,36 @@
+<mat-toolbar color="primary" *ngIf="loginService.isLoggedIn()">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Gestión de Proyectos</span>
+</mat-toolbar>
+
+<mat-sidenav-container
+  class="sidenav-container"
+  *ngIf="loginService.isLoggedIn()"
+>
+  <mat-sidenav #sidenav mode="over" class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/proyectos" (click)="sidenav.close()"
+        >Proyectos</a
+      >
+      <a mat-list-item routerLink="/tareas" (click)="sidenav.close()">Tareas</a>
+      <a mat-list-item routerLink="/empleados" (click)="sidenav.close()"
+        >Empleados</a
+      >
+    </mat-nav-list>
+    <div class="logout-button">
+      <button mat-fab color="accent" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet *ngIf="!loginService.isLoggedIn()"></router-outlet>
