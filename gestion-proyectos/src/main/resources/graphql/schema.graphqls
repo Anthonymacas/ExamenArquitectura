@@ -1,0 +1,45 @@
+type Query {
+    listarProyectos: [Proyecto]
+    getProyectoById(id:ID!): Proyecto 
+    listarEmpleados: [Empleado]
+    empleadoById(id: ID!): Empleado  # Esta línea es nueva
+}
+
+type Mutation {
+    crearProyecto(proyecto: ProyectoInput): Proyecto
+    crearEmpleado(empleado: EmpleadoInput): Empleado
+}
+
+type Proyecto {
+    id: ID!
+    nombre: String!
+    descripcion: String
+    tareas: [Tarea]
+}
+
+type Empleado {
+    id: ID!
+    nombre: String!
+    apellido: String!
+    email: String!
+    tareas: [Tarea]
+}
+
+type Tarea {
+    id: ID!
+    nombre: String!
+    descripcion: String
+    proyecto: Proyecto
+    empleados: [Empleado]
+}
+
+input ProyectoInput {
+    nombre: String!
+    descripcion: String
+}
+
+input EmpleadoInput {
+    nombre: String!
+    apellido: String!
+    email: String!
+}
